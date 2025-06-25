@@ -13,7 +13,7 @@ import orderRouter from "./routes/orderRoute.js";
 const app = express();
 const port = process.env.PORT || 3000;
 connectDB();
-connectCloudinary(); 
+connectCloudinary();
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -30,6 +30,6 @@ app.get("/", (req, res) => {
   res.send("backend");
 });
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log("listening on", port);
 });

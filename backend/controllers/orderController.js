@@ -6,7 +6,7 @@ const placeOrder = async (req, res) => {
     const { userId, items, amount, address } = req.body;
 
     const orderData = {
-      userId,
+      userId, 
       items,
       address,
       amount,

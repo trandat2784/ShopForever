@@ -13,3 +13,18 @@ Kết quả mỗi folder là :
     server báo cổng 3005
     frontend tuỳ máy
     admin không quan trọng cổng gì
+
+
+Ví dụ về thêm sản phẩm 
+Frontend : 
+  Có form nhập giá trị các thông số như: ảnh, tên , giá , kích thước..
+  Trong form này sẽ có địa chỉ để xử lí  
+  Ấn "Thêm" nó sẽ gửi form này cho "giao hàng" (api) đến địa chỉ xử lí 
+Backend : Như 1 nhà máy có nhiều cổng xử lí (cổng thêm, cổng xóa , cổng update)
+  Khi đến backend nó sẽ đến gặp bảo vệ cổng chính (routes) và hỏi cổng thêm sản phẩm ở đâu 
+  Đưa cho nhân viên ở gác cổng "thêm sản phẩm"(controller) 
+  Nhân viên này sẽ kiểm tra xem với các thông tin trong form có khớp với các kiểu dữ liệu mà db có không (model)
+  Nhân viên này sẽ viết 1 bức thư mô tả lại việc thêm thành công , thất bại...
+  Viết thư xong nhân viên sẽ giao cho "giao hàng" 
+  Giao hàng sẽ quay lại phía frontend với bức thứ trên tay 
+  Nội dung bức thư sẽ hiển thị bên phía người dùng (thất bại , thành công ...)

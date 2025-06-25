@@ -62,20 +62,12 @@ const Order = ({ token }) => {
             <div>
               <div>
                 {order.items.map((item, index) => {
-                  console.log(item);
-                  if (index === order.items.length - 1) {
-                    return (
-                      <p className="py-0.5" key={index}>
-                        {item.name} x {item.quantity}
-                        <span>{item.size}</span>
-                      </p>
-                    );
-                  } else {
+                  return (
                     <p className="py-0.5" key={index}>
                       {item.name} x {item.quantity}
                       <span>{item.size}</span>
-                    </p>;
-                  }
+                    </p>
+                  );
                 })}
               </div>
               <p className="mt-3 mb-2 font-medium">

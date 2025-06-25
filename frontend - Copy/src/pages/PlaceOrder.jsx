@@ -12,7 +12,7 @@ const PlaceOrder = () => {
     backendUrl,
     token,
     cartItem,
-    setCartItem,
+    setCartItem, 
     getCartAmount,
     delivery_fee,
     products,

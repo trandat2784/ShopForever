@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
 const Comment = ({token}) => {
-  const { PostId } = useParams();
+  const { ProductId } = useParams();
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [replyContent, setReplyContent] = useState("");
@@ -45,7 +45,7 @@ const Comment = ({token}) => {
     try {
       const response = await axios.post(
         `http://localhost:3000/api/comment/list`,
-        { PostId }
+        { ProductId }
       );
       setComments(response.data.comments);
     } catch (error) {
@@ -60,7 +60,7 @@ const Comment = ({token}) => {
       const response = await axios.post(
         "http://localhost:3000/api/comment/create",
         {
-          postId: PostId,
+          ProductId: ProductId,
           userId: "676e3a473b128f6b2c1d88cb",
           content: newComment,
         }
@@ -78,10 +78,10 @@ const Comment = ({token}) => {
   };
   const handleDeleteComment = async (id) => {
     try {
-      const response = await axios.post(
+      const response = await axios.delete(
         "http://localhost:3000/api/comment/delete",
-        { id },
-        { headers: { token } }
+       
+        { headers: { token } ,params: { id }}
       );
        if(response.data.success){
         toast.success(response.data.message);

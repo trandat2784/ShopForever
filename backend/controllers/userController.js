@@ -31,7 +31,6 @@ const registerUser = async (req, res) => {
     });
     const user = await newUser.save();
     const token = createToken(user._id);
-    console.log(user._id);
     res.json({ success: true, token, userId: user._id.toString() });
   } catch (error) {
     console.log(error);
@@ -48,7 +47,6 @@ const loginUser = async (req, res, next) => {
     const isMatch = await bcrypt.compare(password, user.password); 
     if (isMatch && user.role===0) {
       const token = createToken(user._id);
-      console.log(user._id.toString());
       res.json({ success: true, token, userId: user._id.toString() });
     } else {
       res.json({ success: false, message: "Invalid credential" });
@@ -83,57 +81,10 @@ const adminLogin = async (req, res) => {
   }
 };
 
-const updateFavourite = async (req, res) => {
-  try {
-    const { UserId, PostId } = req.body;
-    console.log(UserId, PostId);
-    await userModel.updateOne(
-      { _id: UserId, favourite: { $ne: PostId } },
-      { $push: { favourite: PostId } }
-    );
-    res.json({ success: true, message: "Update post in favorites" });
-  } catch (error) {
-    res.json({ success: false, message: error });
-  }
-};
-const listFavourite = async (req, res) => {
-  try {
-    const { userId } = req.body;
-    console.log("userid", userId);
-    const user = await userModel.findById(userId);
-    if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: "User not found" });
-    }
-    const favourite = user.favourite;
-    console.log("favourite", favourite);
-    res.json({ success: true, favourite });
-  } catch (error) {}
-};
-const removeFavourite = async (req, res) => {
-  try {
-    console.log("remove fv");
-    const { userId, postId } = req.body;
-    console.log(userId);
-    console.log(postId);
-    const user = await userModel.findById(userId);
-    console.log("user", user);
-    user.favourite = user.favourite.filter((id) => id.toString() !== postId);
-    await user.save();
-    console.log(postId);
-    console.log(user.favourites);
-    res.status(200).json({
-      message: "Post removed from favourites",
-      favourites: user.favourites,
-    });
-  } catch (error) {
-    res.status(500).json({ message: "Error removing post", error });
-  }
-};
+
+
 const listUsers = async (req, res) => {
   try {
-    console.log("vao list user");
     const users = await userModel.find({});
     res.json({ success: true, users });
   } catch (error) {
@@ -151,7 +102,6 @@ const removeUser = async (req, res) => {
 const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
-    console.log(email);
     const oldUser = await userModel.findOne({ email });
     if (!oldUser) {
       return res.json({ success: false, message: "User Not Exists!!" });
@@ -274,9 +224,6 @@ export {
   loginUser,
   registerUser,
   adminLogin,
-  updateFavourite,
-  listFavourite,
-  removeFavourite,
   listUsers,
   removeUser,
   forgotPassword,

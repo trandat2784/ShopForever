@@ -10,7 +10,6 @@ import Login from "./components/Login";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UpdateProduct from "./pages/UpdateProduct";
-import Check from "./pages/Check";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import { AdminContextKey } from "./Context/AdminContext";
@@ -64,7 +63,7 @@ const App = () => {
                 />
 
                 <Route
-                  path="/post/Comment/:PostId"
+                  path="/product/comment/:ProductId"
                   element={<Comment token={token} />}
                 />
                 <Route

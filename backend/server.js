@@ -5,10 +5,9 @@ import connectDB from "./config/mongoosedb.js";
 import connectCloudinary from "./config/cloudinary.js";
 import userRouter from "./routes/userRoute.js";
 import productRouter from "./routes/productRoute.js";
-import postRouter from "./routes/postRoute.js";
-import reviewRouter from "./routes/reviewRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import commentRouter from "./routes/commentRoute.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -23,8 +22,7 @@ app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/product", productRouter);
-app.use("/api/post", postRouter);
-app.use("/api/review", reviewRouter);
+app.use("/api/comment", commentRouter);
 
 app.get("/", (req, res) => {
   res.send("backend");

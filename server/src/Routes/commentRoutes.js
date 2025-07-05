@@ -1,5 +1,5 @@
-import express from "express"
 import { listComment ,createComment,replyComment,deleteComment} from "../Controllers/commentControllers.js";
+import express from "express"
 
 const commentRouter = express.Router();
 commentRouter.post("/list", listComment);

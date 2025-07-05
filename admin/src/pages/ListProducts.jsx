@@ -107,10 +107,11 @@ const List = ({ token }) => {
       </div>
       <div>
         {/* {list product} */}
-        <div className="hidden md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center py-1 px-2 border bg-gray-100 text-sm">
+        <div className="hidden md:grid grid-cols-[1fr_2fr_1fr_1fr_1fr_1fr] items-center py-1 px-2 border bg-gray-100 text-sm">
           <b>Image</b>
           <b>Name</b>
           <b>Category</b>
+          <b className="text-center">Comment</b>
           <b className="text-center">Update</b>
           <b className="text-center">Delete</b>
         </div>
@@ -118,12 +119,16 @@ const List = ({ token }) => {
           ? list.map((item, index) => (
               <div
                 key={index}
-                className="grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center gap-2 py-1 px-2 border text-sm"
+                className="grid grid-cols-[1fr_3fr_1fr] md:grid-cols-[1fr_2fr_1fr_1fr_1fr_1fr] items-center gap-2 py-1 px-2 border text-sm"
               >
                 <img src={item.image[0]} alt="" />
                 <p>{item.name}</p>
                 <p>{item.category}</p>
-
+                <Link to={`/product/comment/${item._id}`}>
+                  <p className="text-right p-1  bg-main-color md:text-center cursor-pointer text-lg">
+                    Comment
+                  </p>
+                </Link>
                 <Link to={`/product/update/${item._id}`}>
                   <p className="text-right p-1  bg-main-color md:text-center cursor-pointer text-lg">
                     Update

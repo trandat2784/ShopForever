@@ -11,11 +11,12 @@ const listComment = async (req, res) => {
 const createComment = async (req, res) => {
   try {
     const { ProductId, content, userId } = req.body;
-
+    console.log(req.body);
     const newComment = new commentModel({
       productId: ProductId,
       userId,
       content,
+
     });
     await newComment.save();
     res.status(201).json({ success: true, newComment });

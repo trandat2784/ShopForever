@@ -8,6 +8,7 @@ const commentSchema = new mongoose.Schema({
   productId: { required: true, type: String },
   userId: { required: true, type: String },
   content: { required: true, type: String },
+  content2: { required: false, type: String },
   replies: { type: [replySchema], default: [] },
 });
 const commentModel =

@@ -13,7 +13,7 @@ const Login = () => {
   const { backendUrl, setToken, token, navigate, setUserId, userId } =
     useContext(ShopContext);
   const onSubmitHandler = async (event) => {
-    event.preventDefault();
+ 
     try {
       console.log(currentState);
       if (currentState === "Sign up") {

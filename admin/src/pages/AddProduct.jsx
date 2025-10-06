@@ -16,7 +16,7 @@ const Add = ({ token }) => {
   const [subCategory, setSubcategory] = useState("Topwear");
   const [sizes, setSizes] = useState([]);
   const [bestseller, setBestseller] = useState(false);
-
+ 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {

@@ -11,6 +11,7 @@ productRouter.post(
     { name: "image3", maxCount: 1 },
     { name: "image4", maxCount: 1 },
   ]),
+// moi phan tu cua field  tra ve 1 object   filename: "169234534-abc.jpg", path: "uploads/169234534-abc.jpg", 
   addProduct
 );
 productRouter.post(

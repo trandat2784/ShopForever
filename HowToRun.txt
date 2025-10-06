@@ -1,16 +1,16 @@
 
 Mở vs code vào folder
-Chạy theo thứ tự folder backend -server - frontend- admin
+Chạy theo thứ tự folder backend  - frontend- admin
 Chuột phải vào tên foler chọn Open in intergrated terminal
 Khi đã mở ra dc terminal của folder ta chạy lệnh sau
 Ở mỗi folder chạy lệnh npm install
     backend : npm start 
-    server : npm start
+   
     frontend: npm start
     admin : npm run dev
 Kết quả mỗi folder là : 
     backend báo cổng đang chạy là 3000 
-    server báo cổng 3005
+  
     frontend tuỳ máy
     admin không quan trọng cổng gì
 

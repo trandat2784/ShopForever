@@ -29,7 +29,7 @@ const addProduct = async (req, res) => {
     );
    
     const productData = {
-      name,
+      name, 
       linkProduct,
       description,
       category,
